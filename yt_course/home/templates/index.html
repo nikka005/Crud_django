@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block start%}
+    <h1>Demo off da django</h1>
+
+    <table class="container">
+        <tr>
+          <th>S.No</th>
+          <th>Name </th>
+          <th>Age</th>
+          <th>gender</th>
+          <th>can vote</th>
+
+          
+        </tr>
+        {% for people in peopels %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+          <td>{{people.gender}}</td>
+          <td  {% if people.age >= 18 %} style="background:red" {% endif %}>
+            {% if people.age >= 18 %}
+            activet
+            {% else %}
+            not active yet!
+            {% endif %}
+          </td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+    <p>
+        {% if 'ffggf' in veg %}
+            le is present
+        {% elif 'to' in veg%}
+            to are also there
+        {% else %}
+            no vegetables found here!!
+        {% endif %}
+        
+    </p>
+
+    <a href="/contact/">contact</a>
+
+    <p></p>
+    <a href="/about/">About</a>
+{% endblock %}
+
+
+
